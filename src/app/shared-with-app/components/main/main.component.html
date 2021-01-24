@@ -1,1 +1,7 @@
-<p>main works!</p>
+<ng-container *ngIf="!showTriviaOptions">
+  <app-user-info [formGroup]="userInfoForm" (submitted)="setUserInfo()"></app-user-info>
+</ng-container>
+
+<ng-container *ngIf="showTriviaOptions">
+  <app-trivia-options></app-trivia-options>
+</ng-container>

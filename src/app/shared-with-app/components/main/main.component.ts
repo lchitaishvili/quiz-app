@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  public userInfoForm: FormGroup;
+  public showTriviaOptions = false;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initUserInfoForm();
+  }
+
+  initUserInfoForm() {
+    this.userInfoForm = this.fb.group({
+      name: ''
+    })
+  }
+
+  setUserInfo() {
+    this.showTriviaOptions = true;
   }
 
 }

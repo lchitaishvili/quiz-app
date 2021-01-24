@@ -1,1 +1,12 @@
-<p>user-info works!</p>
+<div class="wrapper" [formGroup]="form">
+  <mat-form-field appearance="standard">
+    <mat-label>What's Your name, Challenger?</mat-label>
+    <input [formControl]="name" matInput placeholder="Type your name here">
+  </mat-form-field>
+  <ng-container *ngIf="name.value">
+    <button [@slideUp] (click)="submit()" mat-flat-button color="primary">
+      OK
+      <mat-icon>check</mat-icon>
+    </button>
+  </ng-container>
+</div>
