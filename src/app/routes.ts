@@ -19,4 +19,7 @@ export const routes: Routes = [
     canActivate: [DirectAccessGuard],
     loadChildren: () => import('./features/results/results.module').then(m => m.ResultsModule)
   },
+  {
+    path: '**', redirectTo: 'info', pathMatch: 'full'
+  }
 ];
