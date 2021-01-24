@@ -4,6 +4,7 @@ import { MainComponent } from './components/main/main.component';
 import { UserInfoComponent } from './components/main/user-info/user-info.component';
 import { TriviaOptionsComponent } from './components/main/trivia-options/trivia-options.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
+    SharedModule,
     MainComponent,
     UserInfoComponent,
     TriviaOptionsComponent

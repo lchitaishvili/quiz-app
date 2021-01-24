@@ -4,6 +4,7 @@ import { QuestionsService } from 'src/app/shared/services/questions.service';
 import { finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class MainComponent implements OnInit {
     private fb: FormBuilder,
     private questionsService: QuestionsService,
     private userService: UserService,
+    private loadingService: LoadingService,
     private router: Router
   ) { }
 
@@ -55,11 +57,15 @@ export class MainComponent implements OnInit {
     const amount = 10;
     const category = this.category.value;
     const difficulty = this.difficulty.value;
+    this.loadingService.show();
 
     this.questionsService.getQuestions(amount, category, difficulty)
     .pipe(
       tap(result => this.questionsService.setQuestions(result)),
-      finalize(() => this.router.navigateByUrl('trivia'))
+      finalize(() => {
+        this.loadingService.hide();
+        this.router.navigateByUrl('trivia')
+      })
     ).subscribe();
   }
 

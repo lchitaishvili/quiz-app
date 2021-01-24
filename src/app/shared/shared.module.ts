@@ -5,10 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuestionsService } from './services/questions.service';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [LoadingComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
+    LoadingComponent,
     MaterialModule,
     ReactiveFormsModule
   ],
