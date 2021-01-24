@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -14,52 +16,65 @@ export class MainComponent implements OnInit {
   public optionsForm: FormGroup;
   public showTriviaOptions = false;
 
-  constructor(private fb: FormBuilder, private questionsService: QuestionsService) { }
+  constructor(
+    private fb: FormBuilder,
+    private questionsService: QuestionsService,
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.initUserInfoForm();
   }
 
-  initUserInfoForm() {
+  initUserInfoForm(): void {
     this.userInfoForm = this.fb.group({
-      name: ''
+      name: this.userService.getName()
     })
   }
 
-  userInfoSubmitted() {
+  userInfoSubmitted(): void {
+    this.setUser(this.userName.value);
     this.initOptionsfoForm();
     this.showTriviaOptions = true;
   }
 
-  initOptionsfoForm() {
+  initOptionsfoForm(): void {
     this.optionsForm = this.fb.group({
       category: '',
       difficulty: ''
     })
   }
 
-  startTrivia() {
-    const category = this.category.value;
-    const difficulty = this.difficulty.value;
-
-    this.questionsService.getQuestions(category, difficulty).pipe(
-      tap(result => this.questionsService.setQuestions(result))
-    ).subscribe();
-  }
-
-  backToUserInfo() {
+  backToUserInfo(): void {
     this.showTriviaOptions = false;
   }
 
-  get userName() {
+  startTrivia(): void {
+    const amount = 10;
+    const category = this.category.value;
+    const difficulty = this.difficulty.value;
+
+    this.questionsService.getQuestions(amount, category, difficulty).pipe(
+      tap(result => {
+        this.questionsService.setQuestions(result);
+        this.router.navigateByUrl('trivia')
+      })
+    ).subscribe();
+  }
+
+  setUser(name: string) {
+    this.userService.setName(name);
+  }
+
+  get userName(): FormControl {
     return this.userInfoForm.get('name') as FormControl;
   }
 
-  get category() {
+  get category(): FormControl {
     return this.optionsForm.get('category') as FormControl;
   }
 
-  get difficulty() {
+  get difficulty(): FormControl {
     return this.optionsForm.get('difficulty') as FormControl;
   }
 }

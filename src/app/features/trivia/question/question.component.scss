@@ -1,0 +1,19 @@
+.wrapper {
+  .answers-wrap {
+    margin-bottom: 10px;
+
+    button {
+      margin-right: 10px;
+      transition: background-color 1s linear;
+
+      &.correct {
+        background-color: rgb(2, 197, 2);
+        color: #ffffff;
+      }
+      &.incorrect {
+        background-color: rgb(218, 1, 1);
+        color: #ffffff;
+      }
+    }
+  }
+}

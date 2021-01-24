@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h2>{{question.question}}</h2>
+
+  <div class="answers-wrap">
+    <ng-container *ngFor="let answer of question.answers">
+      <button class="answer" (click)="getResult(answer)" mat-flat-button color="secondary" [disabled]="userAnswer"
+        [ngClass]="userAnswer === answer ? answer === question.correct_answer ? 'correct' : 'incorrect' : ''">
+        {{answer}}
+      </button>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="userAnswer">
+    <div class="btn-wrap">
+      <ng-container *ngIf="!isLastQuestion; else last">
+        <button (click)="nextQuestion()" mat-flat-button color="primary">
+          Next
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #last>
+        <button (click)="goToResults()" mat-flat-button color="primary">
+          Results
+          <mat-icon>last_page</mat-icon>
+        </button>
+      </ng-template>
+    </div>
+  </ng-container>
+</div>
+
