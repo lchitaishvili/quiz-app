@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [@slowSlide]>
   <h2>{{question.question}}</h2>
 
   <div class="answers-wrap">
@@ -12,18 +12,21 @@
 
   <ng-container *ngIf="userAnswer">
     <div class="btn-wrap">
+
       <ng-container *ngIf="!isLastQuestion; else last">
-        <button (click)="nextQuestion()" mat-flat-button color="primary">
+        <button [@slideUp] (click)="nextQuestion()" mat-flat-button color="primary">
           Next
           <mat-icon>arrow_right_alt</mat-icon>
         </button>
       </ng-container>
+
       <ng-template #last>
-        <button (click)="goToResults()" mat-flat-button color="primary">
+        <button [@slideUp] (click)="goToResults()" mat-flat-button color="primary">
           Results
           <mat-icon>last_page</mat-icon>
         </button>
       </ng-template>
+
     </div>
   </ng-container>
 </div>
