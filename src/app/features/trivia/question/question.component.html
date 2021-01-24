@@ -4,8 +4,8 @@
 
   <div class="answers-wrap">
     <ng-container *ngFor="let answer of question.answers">
-      <button (click)="getResult(answer)" mat-flat-button color="secondary" [disabled]="userAnswer"
-        [ngClass]="userAnswer === answer ? answer === question.correct_answer ? 'correct' : 'incorrect' : ''">
+      <button (click)="getResult(answer)" mat-flat-button color="secondary"
+        [disabled]="userAnswer" [ngClass]="getButtonClass(answer)">
         {{answer}}
       </button>
     </ng-container>

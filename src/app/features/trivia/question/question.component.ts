@@ -49,4 +49,14 @@ export class QuestionComponent implements OnInit, OnChanges {
   get isLastQuestion() {
     return this.currIndex === this.amount - 1;
   }
+
+  getButtonClass(buttonText: string): string {
+    if (this.userAnswer && buttonText === this.question.correct_answer) {
+      return 'correct';
+    }
+
+    if (buttonText === this.userAnswer) {
+      return buttonText === this.question.correct_answer ? 'correct' : 'incorrect';
+    }
+  }
 }
