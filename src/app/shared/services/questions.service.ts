@@ -31,9 +31,9 @@ export class QuestionsService {
 
     return this.http.get<ServiceResult<Question[]>>('https://opentdb.com/api.php', {params: params})
       .pipe(
-        map(response => response.results),
-        map(result => this.removeHtml(result)),
-        map(response => this.shuffleAnswers(response)),
+        map(items => items.results),
+        map(items => this.removeHtml(items)),
+        map(items => this.shuffleAnswers(items)),
       );
   }
 

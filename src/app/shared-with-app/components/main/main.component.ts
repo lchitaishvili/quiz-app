@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -20,7 +20,8 @@ export class MainComponent implements OnInit {
     private fb: FormBuilder,
     private questionsService: QuestionsService,
     private userService: UserService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.initUserInfoForm();
@@ -54,11 +55,10 @@ export class MainComponent implements OnInit {
     const category = this.category.value;
     const difficulty = this.difficulty.value;
 
-    this.questionsService.getQuestions(amount, category, difficulty).pipe(
-      tap(result => {
-        this.questionsService.setQuestions(result);
-        this.router.navigateByUrl('trivia')
-      })
+    this.questionsService.getQuestions(amount, category, difficulty)
+    .pipe(
+      tap(result => this.questionsService.setQuestions(result)),
+      finalize(() => this.router.navigateByUrl('trivia'))
     ).subscribe();
   }
 
