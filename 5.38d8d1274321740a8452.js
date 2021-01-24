@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{hqjr:function(n,o,r){"use strict";r.r(o),r.d(o,"TriviaModule",(function(){return u}));var t=r("ofXK"),e=r("PCNd"),i=r("fXoL");let u=(()=>{class n{}return n.\u0275mod=i.Jb({type:n}),n.\u0275inj=i.Ib({factory:function(o){return new(o||n)},imports:[[t.b,e.a]]}),n})()}}]);
