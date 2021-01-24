@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
 import { slowSlide } from 'src/app/shared/animations/slow-slide.animation';
 import { categories } from '../../../../shared/constants/dbCategories';
@@ -8,7 +8,8 @@ import { difficulties } from '../../../../shared/constants/dbDifficulties';
   selector: 'app-trivia-options',
   templateUrl: './trivia-options.component.html',
   styleUrls: ['./trivia-options.component.scss'],
-  animations: [slowSlide]
+  animations: [slowSlide],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TriviaOptionsComponent implements OnInit {
   public form: FormGroup;

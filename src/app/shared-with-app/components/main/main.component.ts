@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
 import { finalize, tap } from 'rxjs/operators';
@@ -9,7 +9,8 @@ import { UserService } from 'src/app/shared/services/user.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
   public userInfoForm: FormGroup;

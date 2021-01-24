@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { slowSlide } from 'src/app/shared/animations/slow-slide.animation';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
@@ -8,7 +8,8 @@ import { UserService } from 'src/app/shared/services/user.service';
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
-  animations: [slowSlide]
+  animations: [slowSlide],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultsComponent implements OnInit {
 
