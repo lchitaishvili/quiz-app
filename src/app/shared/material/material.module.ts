@@ -55,6 +55,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatInputModule,
     MatListModule,
     MatButtonModule,
+    MatSelectModule,
+    ScrollingModule
   ]
 })
 export class MaterialModule {}

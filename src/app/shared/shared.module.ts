@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { QuestionsService } from './services/questions.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -10,11 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     MaterialModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [QuestionsService]
 })
 export class SharedModule { }
