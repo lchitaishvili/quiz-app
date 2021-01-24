@@ -24,7 +24,7 @@ export class ResultsComponent implements OnInit {
   retry() {
     this.userService.setCurrentScore(0);
     this.questionsService.reset();
-    this.router.navigateByUrl('main');
+    this.router.navigateByUrl('info');
   }
 
   get name() {
