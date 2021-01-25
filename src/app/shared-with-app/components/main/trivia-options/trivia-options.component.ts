@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
 import { slowSlide } from 'src/app/shared/animations/slow-slide.animation';
 import { categories } from '../../../../shared/constants/dbCategories';
@@ -16,6 +16,8 @@ export class TriviaOptionsComponent implements OnInit {
 
   categories = categories;
   difficulties = difficulties;
+
+  @Input() user: string;
 
   @Output() submitted = new EventEmitter();
   @Output() goBack = new EventEmitter();

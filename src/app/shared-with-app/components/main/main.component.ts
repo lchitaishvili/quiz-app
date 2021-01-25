@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
 import { finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class MainComponent implements OnInit {
 
   initUserInfoForm(): void {
     this.userInfoForm = this.fb.group({
-      name: this.userService.getName()
+      name: [this.userService.getName(), [Validators.maxLength(30)]]
     })
   }
 
@@ -69,8 +69,12 @@ export class MainComponent implements OnInit {
     ).subscribe();
   }
 
-  setUser(name: string) {
+  setUser(name: string): void {
     this.userService.setName(name);
+  }
+
+  get user(): string {
+    return this.userService.getName();
   }
 
   get userName(): FormControl {
