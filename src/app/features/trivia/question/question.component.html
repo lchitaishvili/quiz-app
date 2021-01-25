@@ -19,14 +19,14 @@
   <div class="btn-wrap">
 
     <ng-container *ngIf="!isLastQuestion; else last">
-      <button [@slideUp] id="next" (click)="nextQuestion()" mat-flat-button color="primary">
+      <button [@slideUp] (click)="nextQuestion()" mat-flat-button color="primary">
         Next
         <mat-icon class="animate">arrow_right_alt</mat-icon>
       </button>
     </ng-container>
 
     <ng-template #last>
-      <button [@slideUp] id="results" (click)="goToResults()" mat-flat-button color="primary">
+      <button [@slideUp] (click)="goToResults()" mat-flat-button color="primary">
         Results
         <mat-icon>last_page</mat-icon>
       </button>
