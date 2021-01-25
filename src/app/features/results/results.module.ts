@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResultsComponent } from './results.component';
+import { ResultsComponent } from './components/results.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ResultsRoutingModule } from './results-routing.module';
 

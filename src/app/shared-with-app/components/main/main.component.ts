@@ -28,6 +28,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.initUserInfoForm();
+    this.reset();
   }
 
   initUserInfoForm(): void {
@@ -67,6 +68,11 @@ export class MainComponent implements OnInit {
         this.router.navigateByUrl('trivia')
       })
     ).subscribe();
+  }
+
+  reset() {
+    this.userService.setCurrentScore(0);
+    this.questionsService.reset();
   }
 
   setUser(name: string): void {

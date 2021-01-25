@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ResultsComponent } from './results.component';
+import { DirectAccessGuard } from 'src/app/shared/guards/direct-access.guard';
+import { ResultsComponent } from './components/results.component';
+import { ResultsGuard } from './guards/results.guard';
 
 const routes: Routes = [
   {
-    path: '', component: ResultsComponent
+    path: '', component: ResultsComponent, canActivate: [ResultsGuard, DirectAccessGuard]
   },
 ];
 
