@@ -11,16 +11,13 @@ import { UserService } from 'src/app/shared/services/user.service';
   animations: [slowSlide],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
 
   constructor(
     private userService: UserService,
     private questionsService: QuestionsService,
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   retry() {
     this.userService.setCurrentScore(0);

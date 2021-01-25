@@ -10,7 +10,7 @@ import { Question } from 'src/app/shared/models/question';
   animations: [slowSlide, slideUp],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class QuestionComponent implements OnInit, OnChanges {
+export class QuestionComponent {
   public userAnswer: string;
 
   @Input() question: Question;
@@ -21,17 +21,9 @@ export class QuestionComponent implements OnInit, OnChanges {
   @Output() showResults = new EventEmitter<void>();
   @Output() processResult = new EventEmitter<boolean>();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  ngOnChanges() {
-  }
-
-  getResult(answer: string) {
-    this.userAnswer = answer;
-    const result = answer === this.question.correct_answer;
+  getResult(buttonText: string) {
+    this.userAnswer = buttonText;
+    const result = buttonText === this.question.correct_answer;
     this.processResult.emit(result);
 
     return result;

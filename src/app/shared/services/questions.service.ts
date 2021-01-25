@@ -73,6 +73,6 @@ export class QuestionsService {
   }
 
   reset() {
-    this.currentIndex = 0;
+    this.currentIndex = -1;
   }
 }
