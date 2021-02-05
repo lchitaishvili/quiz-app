@@ -1,4 +1,4 @@
-import {ValueBase} from '../models/value-base'
+import {ValueBase} from '../models/value-base';
 
 export const categories: ValueBase[] = [
   {

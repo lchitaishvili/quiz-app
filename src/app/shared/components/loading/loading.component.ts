@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingService } from '../../services/loading.service'
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-loading',
@@ -13,7 +13,7 @@ export class LoadingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get loading() {
+  get loading(): boolean {
     return this.loadingService.getStatus();
   }
 }

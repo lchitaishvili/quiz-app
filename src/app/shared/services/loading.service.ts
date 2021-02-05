@@ -8,15 +8,15 @@ export class LoadingService {
 
   constructor() { }
 
-  show() {
+  show(): void {
     this.status = true;
   }
 
-  hide() {
+  hide(): void {
     this.status = false;
   }
 
-  getStatus() {
+  getStatus(): boolean {
     return this.status;
   }
 }

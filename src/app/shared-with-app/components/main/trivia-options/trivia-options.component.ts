@@ -28,19 +28,19 @@ export class TriviaOptionsComponent implements OnInit {
     this.form = this.cc.control as FormGroup;
   }
 
-  submit() {
+  submit(): void {
     this.submitted.emit();
   }
 
-  back() {
+  back(): void {
     this.goBack.emit();
   }
 
-  get category() {
+  get category(): FormControl {
     return this.form.get('category') as FormControl;
   }
 
-  get difficulty() {
+  get difficulty(): FormControl {
     return this.form.get('difficulty') as FormControl;
   }
 }

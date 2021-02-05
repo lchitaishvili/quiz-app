@@ -19,21 +19,21 @@ export class ResultsComponent {
     private router: Router
   ) { }
 
-  retry() {
+  retry(): void {
     this.userService.setCurrentScore(0);
     this.questionsService.reset();
     this.router.navigateByUrl('info');
   }
 
-  get name() {
+  get name(): string {
     return this.userService.getName();
   }
 
-  get score() {
+  get score(): number {
     return this.userService.getCurrentScore();
   }
 
-  get amount() {
+  get amount(): number {
     return this.questionsService.getAmount();
   }
 }

@@ -21,11 +21,11 @@ export class UserInfoComponent implements OnInit {
     this.form = this.cc.control as FormGroup;
   }
 
-  submit() {
+  submit(): void {
     this.submitted.emit();
   }
 
-  get name() {
+  get name(): FormControl {
     return this.form.get('name') as FormControl;
   }
 

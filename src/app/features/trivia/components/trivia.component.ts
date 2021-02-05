@@ -23,27 +23,27 @@ export class TriviaComponent implements OnInit {
     this.getNextQuestion();
   }
 
-  getNextQuestion() {
+  getNextQuestion(): void {
     this.question = this.questionsService.getNextQuestion();
   }
 
-  setScore(result: boolean) {
-    let score = this.userService.getCurrentScore();
+  setScore(result: boolean): void {
+    const score = this.userService.getCurrentScore();
 
     if (result) {
-      this.userService.setCurrentScore(score + 1)
+      this.userService.setCurrentScore(score + 1);
     }
   }
 
-  showResults() {
+  showResults(): void {
     this.router.navigateByUrl('results');
   }
 
-  get currIndex() {
+  get currIndex(): number {
     return this.questionsService.getCurrIndex();
   }
 
-  get amount() {
+  get amount(): number {
     return this.questionsService.getAmount();
   }
 }

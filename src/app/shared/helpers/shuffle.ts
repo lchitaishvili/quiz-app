@@ -1,6 +1,8 @@
-export function shuffle(array: any[]) {
+export function shuffle(array: any[]): any[] {
   if (array.length > 2) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
 
     while (0 !== currentIndex) {
 

@@ -21,7 +21,7 @@ export class QuestionComponent {
   @Output() showResults = new EventEmitter<void>();
   @Output() processResult = new EventEmitter<boolean>();
 
-  getResult(buttonText: string) {
+  getResult(buttonText: string): boolean {
     this.userAnswer = buttonText;
     const result = buttonText === this.question.correct_answer;
     this.processResult.emit(result);
@@ -29,16 +29,16 @@ export class QuestionComponent {
     return result;
   }
 
-  nextQuestion() {
+  nextQuestion(): void {
     this.userAnswer = null;
     this.next.emit();
   }
 
-  goToResults() {
+  goToResults(): void {
     this.showResults.emit();
   }
 
-  get isLastQuestion() {
+  get isLastQuestion(): boolean {
     return this.currIndex === this.amount - 1;
   }
 

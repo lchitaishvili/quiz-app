@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
   initUserInfoForm(): void {
     this.userInfoForm = this.fb.group({
       name: [this.userService.getName(), [Validators.maxLength(30)]]
-    })
+    });
   }
 
   userInfoSubmitted(): void {
@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
     this.optionsForm = this.fb.group({
       category: '',
       difficulty: ''
-    })
+    });
   }
 
   backToUserInfo(): void {
@@ -65,12 +65,12 @@ export class MainComponent implements OnInit {
       tap(result => this.questionsService.setQuestions(result)),
       finalize(() => {
         this.loadingService.hide();
-        this.router.navigateByUrl('trivia')
+        this.router.navigateByUrl('trivia');
       })
     ).subscribe();
   }
 
-  reset() {
+  reset(): void {
     this.userService.setCurrentScore(0);
     this.questionsService.reset();
   }
