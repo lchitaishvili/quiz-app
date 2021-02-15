@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { slowSlide } from 'src/app/shared/animations/slow-slide.animation';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserState } from 'src/app/shared/store/user/user.state';
+import { ResetScore } from 'src/app/shared/store/user/user.actions';
 
 @Component({
   selector: 'app-results',
@@ -13,24 +16,19 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class ResultsComponent {
 
+  @Select (UserState.userName) name$: Observable<string>;
+  @Select (UserState.userScore) score$: Observable<number>;
+
   constructor(
-    private userService: UserService,
     private questionsService: QuestionsService,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) { }
 
   retry(): void {
-    this.userService.setCurrentScore(0);
+    this.store.dispatch(ResetScore);
     this.questionsService.reset();
     this.router.navigateByUrl('info');
-  }
-
-  get name(): string {
-    return this.userService.getName();
-  }
-
-  get score(): number {
-    return this.userService.getCurrentScore();
   }
 
   get amount(): number {
