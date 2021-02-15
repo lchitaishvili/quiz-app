@@ -4,6 +4,6 @@
 
 <ng-container *ngIf="showTriviaOptions">
   <app-trivia-options [formGroup]="optionsForm" (submitted)="startTrivia()"
-    (goBack)="backToUserInfo()" [user]="user">
+    (goBack)="backToUserInfo()" [name]="name$ | async">
   </app-trivia-options>
 </ng-container>

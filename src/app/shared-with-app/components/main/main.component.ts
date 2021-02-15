@@ -5,7 +5,10 @@ import { finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-
+import { Select, Store } from '@ngxs/store';
+import { ResetScore, SetName } from '../../../shared/store/user/user.actions'
+import { Observable } from 'rxjs';
+import { UserState } from 'src/app/shared/store/user/user.state';
 
 @Component({
   selector: 'app-main',
@@ -18,12 +21,14 @@ export class MainComponent implements OnInit {
   public optionsForm: FormGroup;
   public showTriviaOptions = false;
 
+  @Select (UserState.userName) name$: Observable<string>;
+
   constructor(
     private fb: FormBuilder,
     private questionsService: QuestionsService,
-    private userService: UserService,
     private loadingService: LoadingService,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -32,13 +37,17 @@ export class MainComponent implements OnInit {
   }
 
   initUserInfoForm(): void {
-    this.userInfoForm = this.fb.group({
-      name: [this.userService.getName(), [Validators.maxLength(30)]]
-    });
+    this.name$.pipe(
+      tap(value => {
+        this.userInfoForm = this.fb.group({
+          name: [value, [Validators.maxLength(30)]]
+        });
+      })
+    ).subscribe();
   }
 
   userInfoSubmitted(): void {
-    this.setUser(this.userName.value);
+    this.store.dispatch(new SetName(this.userName.value));
     this.initOptionsfoForm();
     this.showTriviaOptions = true;
   }
@@ -71,16 +80,12 @@ export class MainComponent implements OnInit {
   }
 
   reset(): void {
-    this.userService.setCurrentScore(0);
+    this.store.dispatch(new ResetScore());
     this.questionsService.reset();
   }
 
   setUser(name: string): void {
-    this.userService.setName(name);
-  }
-
-  get user(): string {
-    return this.userService.getName();
+    this.store.dispatch(new SetName(name));
   }
 
   get userName(): FormControl {

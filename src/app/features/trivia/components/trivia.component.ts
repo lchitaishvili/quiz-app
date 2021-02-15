@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
 import { Question } from 'src/app/shared/models/question';
 import { QuestionsService } from 'src/app/shared/services/questions.service';
 import { UserService } from 'src/app/shared/services/user.service';
+import { IncrementScore } from 'src/app/shared/store/user/user.actions';
 
 @Component({
   selector: 'app-trivia',
@@ -15,8 +17,8 @@ export class TriviaComponent implements OnInit {
 
   constructor(
     private questionsService: QuestionsService,
-    private userService: UserService,
-    private router: Router
+    private router: Router,
+    private store: Store
     ) { }
 
   ngOnInit(): void {
@@ -28,10 +30,8 @@ export class TriviaComponent implements OnInit {
   }
 
   setScore(result: boolean): void {
-    const score = this.userService.getCurrentScore();
-
     if (result) {
-      this.userService.setCurrentScore(score + 1);
+      this.store.dispatch(IncrementScore);
     }
   }
 
