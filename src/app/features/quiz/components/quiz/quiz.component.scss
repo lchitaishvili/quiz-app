@@ -1,5 +1,5 @@
+@import "variables";
 .quiz-wrapper {
-  position: relative;
 
   .empty {
     width: 1px;
@@ -10,6 +10,17 @@
     background-color: var(--secondary-bg);
     border-radius: 16px;
     padding: 12px 12px 24px 12px;
+
+    .inner-wrapper {
+      background-color: var(--primary-bg);
+      padding: $space-2;
+      border-radius: 16px;
+    }
   }
+
+  //img {
+  //  position: absolute;
+  //  bottom: 0;
+  //}
 }
 

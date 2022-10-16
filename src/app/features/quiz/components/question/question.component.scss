@@ -1,9 +1,7 @@
 @import "variables";
 
 .wrapper {
-  background-color: var(--primary-bg);
-  padding: $space-2;
-  border-radius: 16px;
+  min-height: 350px;
 
   img {
     border-radius: 16px;

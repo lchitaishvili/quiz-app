@@ -1,21 +1,27 @@
-<div class="wrapper flex column align-center">
+<div class="wrapper flex column align-center justify-between">
 
-  <img src="assets/images/temp-img.png" class="mb-3" alt="">
+  <div>
+    <img src="assets/images/temp-img.png" class="mb-3 no-point" alt="">
 
-  <p class="question-text text mb-4">
-    რომელი რომანის მთავარი პერსონაჟის სახელი შეიძლება გავიგოთ საქართველოს ჰიმნის დასაწყისში?
-  </p>
+    <p class="question-text text mb-5">
+      რომელი რომანის მთავარი პერსონაჟის სახელი შეიძლება გავიგოთ საქართველოს ჰიმნის დასაწყისში?
+    </p>
 
-  <div class="answer mb-5">
-    <ng-container *ngIf="false">
-      <app-multiple-choice></app-multiple-choice>
-    </ng-container>
+    <div class="answer mb-5">
+      <ng-container *ngIf="true">
+        <app-multiple-choice [correctIndex]="correctAnswerIndex"
+                             [incorrectIndex]="incorrectAnswerIndex"
+                             [selectedIndex]="selectedAnswerIndex"
+                             (selectAnswer)="selectAnswer($event)"
+        ></app-multiple-choice>
+      </ng-container>
 
-    <ng-container *ngIf="true">
-      <app-fill></app-fill>
-    </ng-container>
+      <ng-container *ngIf="false">
+        <app-fill></app-fill>
+      </ng-container>
+    </div>
   </div>
 
-  <button>დაადასტურე</button>
+  <button (click)="onSubmit()">დაადასტურე</button>
 </div>
 

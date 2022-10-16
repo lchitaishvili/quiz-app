@@ -2,7 +2,6 @@
   border-radius: 16px;
   background-color: var(--primary-bg);
   height: 324px;
-  animation: 0.5s ease-out 0s 1 slideFromTop;
 
   .text {
     margin-right: 20px;
@@ -11,14 +10,5 @@
 
   .title-large {
     margin-bottom: 24px;
-  }
-}
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(-10%);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
