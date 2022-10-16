@@ -1,43 +1,66 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use "variables";
+@use "fonts";
+@use "spacing";
+@use "positioning";
 
-.wrapper {
-  min-width: 360px;
-  max-width: 500px;
+:root {
+  --primary-bg: #FFFFFF;
+  --secondary-bg: #F5F5F5;
+  --brand: #3C91F7;
+  --brand-light: #00C4FF;
+  --text-light: #80848A;
+  --text-strong: #202124;
+  --success: #83EEB3;
+  --error: #F7024D;
 }
 
-.mat-form-field {
-  width: 100%;
-  font-size: 20px;
+// ADD Theme Variables HERE
+//.dark {
+//  --primary-bg: black;
+//  --secondary-bg: black;
+//  --brand: black;
+//  --text-light: #2C2C2C;
+//  --text-strong: #202124;
+//  --success: #83EEB3;
+//  --error: #F7024D;
+//}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-style: normal;
+  font-family: 'TBC X', sans-serif;
 }
 
-.error {
-  color: #f44336;
+body {
+  overflow-x: hidden;
 }
 
-mat-hint {
-  font-size: 15px;
+.title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text-strong);
+}
+
+.title-large {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text-strong);
+}
+
+.text {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--text-light);
 }
 
 button {
-  mat-icon {
-
-    &.animate {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(0.75);
-      }
-
-      70% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(0.75);
-      }
-    }
-  }
+  border: none;
+  font-weight: 500;
+  background-color: var(--brand);
+  color: var(--primary-bg);
 }

@@ -1,0 +1,13 @@
+.title-large {
+  &.bonus {
+    color: var(--brand-light);
+    letter-spacing: 1px;
+  }
+}
+
+button {
+  &.bonus {
+    color: var(--text-strong);
+    background-color: var(--success);
+  }
+}

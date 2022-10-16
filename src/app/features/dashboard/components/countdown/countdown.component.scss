@@ -1,0 +1,24 @@
+.main {
+  height: 324px;
+}
+
+:host ::ng-deep .custom-countdown {
+  font-size: 18px;
+  color: var(--text-strong);
+  font-weight: 700;
+  line-height: 18px;
+
+  .item {
+    display: inline-block;
+    width: 34px;
+    height: 44px;
+    text-align: center;
+
+    &:not(:nth-child(3n)) {
+      background-color: var(--success);
+      border-radius: 6px;
+      padding: 13px 0;
+      margin-right: 4px;
+    }
+  }
+}

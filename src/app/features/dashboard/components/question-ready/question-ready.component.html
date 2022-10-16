@@ -1,0 +1,14 @@
+<div class="main flex column justify-center align-center">
+  <ng-container *ngIf="false; else bonus">
+    <p class="title-large">კითხვა 04</p>
+    <p class="text text-center mb-4">უპასუხე ახალ კითხვას  და დააგროვე ქულები ყველაზე სწრაფად</p>
+    <button>დაწყება</button>
+  </ng-container>
+
+  <ng-template #bonus>
+    <p class="title-large">კითხვა 04</p>
+    <p class="title-large bonus">+50 ქულა</p>
+    <p class="text text-center mb-4">უპასუხე ბონუს კითხვას და გაიორმაგე ქულები</p>
+    <button class="bonus">ბონუს კითხვა</button>
+  </ng-template>
+</div>
