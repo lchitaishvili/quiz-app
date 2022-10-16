@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <ng-container *ngFor="let char of [1,2,3,4,5,6,7,8,9,10]; let i = index">
+    <input id="input{{i}}" type="text" maxlength="1" (keyup)="onDigitInput($event)">
+  </ng-container>
+</div>
+

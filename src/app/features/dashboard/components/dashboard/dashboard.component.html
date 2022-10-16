@@ -27,17 +27,19 @@
 </div>
 
 <div class="main-content-wrapper mb-3">
-  <ng-container *ngIf="state === 1">
-    <app-question-ready></app-question-ready>
-  </ng-container>
+  <div class="inner-wrap">
+    <ng-container *ngIf="state === 1">
+      <app-question-ready></app-question-ready>
+    </ng-container>
 
-  <ng-container *ngIf="state === 2">
-    <app-countdown></app-countdown>
-  </ng-container>
+    <ng-container *ngIf="state === 2">
+      <app-countdown></app-countdown>
+    </ng-container>
 
-  <ng-container *ngIf="state === 3">
-    <app-no-info></app-no-info>
-  </ng-container>
+    <ng-container *ngIf="state === 3">
+      <app-no-info></app-no-info>
+    </ng-container>
+  </div>
 
   <img src="assets/images/bg-fingerprint.png" alt="">
 </div>

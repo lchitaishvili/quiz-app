@@ -1,8 +1,8 @@
 <div class="main flex column justify-center align-center">
-  <ng-container *ngIf="false; else bonus">
+  <ng-container *ngIf="true; else bonus">
     <p class="title-large">კითხვა 04</p>
     <p class="text text-center mb-4">უპასუხე ახალ კითხვას  და დააგროვე ქულები ყველაზე სწრაფად</p>
-    <button>დაწყება</button>
+    <button routerLink="/quiz">დაწყება</button>
   </ng-container>
 
   <ng-template #bonus>

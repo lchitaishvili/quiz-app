@@ -1,0 +1,20 @@
+@import "variables";
+
+.wrapper {
+  background-color: var(--primary-bg);
+  padding: $space-2;
+  border-radius: 16px;
+
+  img {
+    border-radius: 16px;
+  }
+
+  .question-text {
+    color: var(--text-strong);
+    font-weight: 500;
+  }
+
+  .answer {
+
+  }
+}

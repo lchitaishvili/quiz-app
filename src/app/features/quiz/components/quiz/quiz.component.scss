@@ -1,0 +1,15 @@
+.quiz-wrapper {
+  position: relative;
+
+  .empty {
+    width: 1px;
+    height: 1px;
+  }
+
+  .question-wrapper {
+    background-color: var(--secondary-bg);
+    border-radius: 16px;
+    padding: 12px 12px 24px 12px;
+  }
+}
+
