@@ -1,0 +1,74 @@
+.neb-rating-html-implementation neb-rating .neb-rating.numbers .neb-rating-value label.rating-label.on, .neb-rating-html-implementation neb-rating .neb-rating.numbersCircle .neb-rating-value label.rating-label.on {
+    background-color: #0f437f;
+}
+
+.neb-rating-html-implementation neb-rating .neb-rating.numbers .neb-rating-value label.rating-label.hover, .neb-rating-html-implementation neb-rating .neb-rating.numbersCircle .neb-rating-value label.rating-label.hover {
+    background-color: #0f437f;
+    cursor: pointer;
+}
+
+.neb-rating-html-implementation neb-rating .neb-rating.numbers .neb-rating-value label.rating-label.selected, .neb-rating-html-implementation neb-rating .neb-rating.numbersCircle .neb-rating-value label.rating-label.selected {
+    background: #0f437f;
+    background: radial-gradient(ellipse at center, #0f437f 60%, #4769c5 62%);
+    background: -webkit-radial-gradient( ellipse at center, #0f437f 60%, #4769c5 62%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$core-color', endColorstr='$border-color', GradientType=1);
+}
+
+neb-rating .neb-rating .neb-rating-value {
+    margin-right: 12px;
+}
+
+.rating-label:hover {
+    cursor: pointer;
+}
+
+neb-rating .neb-rating.emoticons label {
+    background: url("https://lchitaishvili.github.io/quiz-app/assets/icons/Emoji2.png") no-repeat;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.on {
+    background-position-y: -35px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.hover {
+    background-position-y: -65px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.selected {
+    background-position-y: -96px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.five {
+    background-position-x: -158px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.four {
+    background-position-x: -127px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.three {
+    background-position-x: -96px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.two {
+    background-position-x: -66px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label.one {
+    background-position-x: -35px;
+}
+
+neb-rating .neb-rating .neb-rating-value label.rating-label {
+    height: 31px;
+    width: 31px;
+    background-position-y: -4px;
+}
+
+.neb-rating-html-implementation neb-rating .neb-rating.numbersSquare .neb-rating-value label.rating-label.hover, .neb-rating-html-implementation neb-rating .neb-rating.numbersSquare .neb-rating-value label.rating-label.on {
+    background: #0f437f;
+}
+
+.neb-rating-html-implementation neb-rating .neb-rating.numbersSquare .neb-rating-value label.rating-label.selected {
+    background: linear-gradient(0deg, #4769c5 10%, transparent 0%), linear-gradient(90deg, #4769c5 10%, transparent 0%), linear-gradient(180deg, #4769c5 10%, transparent 0%), linear-gradient(270deg, #4769c5 10%, transparent 0%), #0f437f;
+    background: -webkit-linear-gradient(90deg, #4769c5 10%, transparent 0%), linear-gradient(90deg, #4769c5 10%, transparent 0%), linear-gradient(180deg, #4769c5 10%, transparent 0%), linear-gradient(270deg, #4769c5 10%, transparent 0%), #0f437f;
+}
